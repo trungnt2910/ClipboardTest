@@ -1,0 +1,4 @@
+﻿
+namespace ClipboardTest.Skia.Gtk
+{
+}
