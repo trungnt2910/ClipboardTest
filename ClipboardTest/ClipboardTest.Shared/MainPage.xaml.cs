@@ -31,6 +31,9 @@ namespace ClipboardTest
     public sealed partial class MainPage : Page
     {
         public BitmapImage ClipboardInspectedImage { get; private set; }
+        public string ClipboardStatusText { get; set; } = "Press a button to test your clipboard!";
+
+        private int _changeCount = 0;
 
         public MainPage()
         {
@@ -41,6 +44,9 @@ namespace ClipboardTest
 
         private void Clipboard_ContentChanged(object sender, object args)
         {
+            ++_changeCount;
+            ClipboardStatusText = $"Clipboard content changed {_changeCount} times";
+            StatusText.Text = ClipboardStatusText;
             Log("Content changed.");
         }
 
@@ -222,6 +228,16 @@ namespace ClipboardTest
                 };
                 await dialog.ShowAsync();
             }
+        }
+
+        private void Flush_Click(object sender, RoutedEventArgs args)
+        {
+            Clipboard.Flush();
+        }
+
+        private void Clear_Click(object sender, RoutedEventArgs args)
+        {
+            Clipboard.Clear();
         }
     }
 }
