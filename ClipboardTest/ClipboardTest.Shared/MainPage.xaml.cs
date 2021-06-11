@@ -103,6 +103,20 @@ namespace ClipboardTest
             Clipboard.SetContent(package);
         }
 
+        private void CopyTextHtmlRtf_Click(object sender, RoutedEventArgs args)
+        {
+            var package = new DataPackage();
+            package.SetText("Hello World!");
+            const string html = @"<!DOCTYPE html><html><body><p>Hello World!</p></body></html>";
+            package.SetHtmlFormat(html);
+            const string rtf = @"{\rtf1\ansi\ansicpg1252\deff0\nouicompat\deflang1033{\fonttbl{\f0\fnil\fcharset0 Calibri;}}
+{\*\generator Riched20 10.0.19041}\viewkind4\uc1 
+\pard\sa200\sl276\slmult1\b\f0\fs22\lang9 Hello World!\par
+}";
+            package.SetRtf(rtf);
+            Clipboard.SetContent(package);
+        }
+
         private async void PasteText_Click(object sender, RoutedEventArgs args)
         {
             var package = Clipboard.GetContent();

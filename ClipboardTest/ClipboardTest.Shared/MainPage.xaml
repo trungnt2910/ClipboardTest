@@ -18,6 +18,7 @@
             <Button x:Name="CopyHtml" Content="Copy HTML to Clipboard" Click="CopyHtml_Click"/>
             <Button x:Name="CopyRtf" Content="Copy RTF to Clipboard" Click="CopyRtf_Click"/>
             <Button x:Name="CopyFile" Content="Copy File to Clipboard" Click="CopyFile_Click"/>
+            <Button x:Name="CopyTextHtmlRtf" Content="Copy Text, HTML and RTF to Clipboard" Click="CopyTextHtmlRtf_Click"/>
             <Button x:Name="Flush" Content="Flush Clipboard" Click="Flush_Click"/>
             <TextBlock x:Name="StatusText" Text="{x:Bind ClipboardStatusText, Mode=OneWay}"/>
         </StackPanel>
@@ -27,6 +28,7 @@
             <Button x:Name="PastHtml" Content="Paste HTML from Clipboard" Click="PasteHtml_Click"/>
             <Button x:Name="PasteRtf" Content="Paste RTF from Clipboard" Click="PasteRtf_Click"/>
             <Button x:Name="PasteFile" Content="Paste File from Clipboard" Click="PasteFile_Click"/>
+            <Button x:Name="Placeholder" Background="Transparent" Content=" "/>
             <Button x:Name="Clear" Content="Clear Clipboard" Click="Clear_Click"/>
         </StackPanel>
     </Grid>
